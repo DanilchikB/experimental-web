@@ -1,8 +1,12 @@
 package conf
 
+import "github.com/gorilla/sessions"
+
 //configuration
 var (
-	PathDB = getUserPath() + "database/"
+	PathDB     = getUserPath() + "database/"
+	Store      = sessions.NewCookieStore([]byte("test"))
+	StaticPath = "./static"
 )
 
 //configuration
