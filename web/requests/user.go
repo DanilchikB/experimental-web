@@ -15,6 +15,11 @@ func UserRequests() {
 		http.Redirect(w, r, "/userpage", http.StatusSeeOther)
 	})
 
+	http.HandleFunc("/auth1", func(w http.ResponseWriter, r *http.Request) {
+		r.ParseForm()
+		fmt.Fprintln(w, r.PostForm)
+	})
+
 	http.HandleFunc("/logout", func(w http.ResponseWriter, r *http.Request) {
 		user.Logout(w, r)
 		http.Redirect(w, r, "/userpage", http.StatusSeeOther)
