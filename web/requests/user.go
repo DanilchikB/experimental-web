@@ -11,18 +11,24 @@ import (
 //UserRequests add Handle for user
 func UserRequests() {
 	http.HandleFunc("/auth", func(w http.ResponseWriter, r *http.Request) {
+		//***Task: get form data and validation***
 		user.Login(w, r)
 		http.Redirect(w, r, "/userpage", http.StatusSeeOther)
 	})
 
-	http.HandleFunc("/auth1", func(w http.ResponseWriter, r *http.Request) {
+	/*http.HandleFunc("/auth1", func(w http.ResponseWriter, r *http.Request) {
 		r.ParseForm()
 		fmt.Fprintln(w, r.PostForm)
-	})
+	})*/
 
 	http.HandleFunc("/logout", func(w http.ResponseWriter, r *http.Request) {
 		user.Logout(w, r)
 		http.Redirect(w, r, "/userpage", http.StatusSeeOther)
+	})
+
+	http.HandleFunc("/tasks/", func(w http.ResponseWriter, r *http.Request) {
+		//show tasks
+		fmt.Fprintf(w, "Tasks page")
 	})
 
 	http.HandleFunc("/userpage", func(w http.ResponseWriter, r *http.Request) {
@@ -37,6 +43,6 @@ func UserRequests() {
 		id = session.Values["id"].(int)
 
 		// Print secret message
-		fmt.Fprintf(w, "You are user nomber %v!", id)
+		fmt.Fprintf(w, "You are user number %v!", id)
 	})
 }
