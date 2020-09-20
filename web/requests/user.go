@@ -12,8 +12,15 @@ import (
 func UserRequests() {
 	http.HandleFunc("/auth", func(w http.ResponseWriter, r *http.Request) {
 		//***Task: get form data and validation***
-		user.Login(w, r)
-		http.Redirect(w, r, "/userpage", http.StatusSeeOther)
+		r.ParseForm()
+		
+		if r.PostForm["username"][0] == "test" && r.PostForm["password"][0] == "123" {
+			fmt.Fprint(w, "Success")
+		} else {
+			fmt.Fprintf(w, "Fail")
+		}
+		//user.Login(w, r)
+		//http.Redirect(w, r, "/userpage", http.StatusSeeOther)
 	})
 
 	/*http.HandleFunc("/auth1", func(w http.ResponseWriter, r *http.Request) {
