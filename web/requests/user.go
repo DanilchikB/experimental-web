@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/DanilchikB/helper-for-university/conf"
-	"github.com/DanilchikB/helper-for-university/web/user"
+	"github.com/DanilchikB/experimental-web/conf"
+	"github.com/DanilchikB/experimental-web/web/user"
 )
 
 //UserRequests add Handle for user

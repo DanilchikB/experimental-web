@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/DanilchikB/helper-for-university/web/requests"
+	"github.com/DanilchikB/experimental-web/web/requests"
 )
 
 //Server run server
