@@ -3,7 +3,7 @@ package user
 import (
 	"net/http"
 
-	"github.com/DanilchikB/experimental-web/conf"
+	"github.com/danilbushkov/experimental-web/conf"
 )
 
 //Login user
